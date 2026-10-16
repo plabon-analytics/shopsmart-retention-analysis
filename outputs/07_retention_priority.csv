@@ -1,0 +1,20 @@
+customer_id,full_name,predictive_clv,clv_tier,rfm_segment,recency_days,r_score,retention_priority
+3,Rohan Mehta,604366.06,3,Loyal Customers,102,2,PROTECT
+48,Priyanka Chatterjee,537633.93,3,Potential Loyalists,36,3,PROTECT
+1,Aarav Sharma,383878.20,3,Champions,48,3,PROTECT
+24,Preethi Subramaniam,377734.30,3,Needs Attention,129,2,PROTECT
+9,Arjun Bose,373833.03,3,Loyal Customers,75,2,PROTECT
+30,Lakshmi Venkat,342630.35,3,At Risk,419,1,INVEST NOW
+6,Ananya Nair,338955.79,2,Champions,0,3,MONITOR
+12,Divya Krishnan,337853.28,2,Champions,22,3,MONITOR
+39,Aditya Kumar,252196.32,2,At Risk,255,1,LOW PRIORITY
+33,Harsh Vardhan,251848.35,2,Needs Attention,88,2,MONITOR
+18,Ritika Agarwal,249229.81,2,Loyal Customers,62,3,MONITOR
+15,Nikhil Rao,239970.42,2,Needs Attention,151,2,MONITOR
+22,Shruti Kapoor,236720.27,1,At Risk,268,1,LOW PRIORITY
+45,Vivek Anand,218953.78,1,Lost,215,1,LOW PRIORITY
+42,Chitra Subash,137660.52,1,Needs Attention,115,2,MONITOR
+27,Varun Bajaj,94767.74,1,Potential Loyalists,10,3,MONITOR
+36,Pallavi Nair,24706.10,1,Lost,468,1,LOW PRIORITY
+5,Vikram Singh,,1,Lost,1500,1,LOW PRIORITY
+11,Rahul Verma,,1,Lost,1351,1,LOW PRIORITY

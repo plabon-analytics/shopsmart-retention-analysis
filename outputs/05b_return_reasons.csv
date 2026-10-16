@@ -1,0 +1,11 @@
+reason,return_records,orders_affected
+Defective product,4,4
+Changed mind,3,3
+Arrived damaged,1,1
+Better price found elsewhere,1,1
+Damaged packaging,1,1
+Not as expected,1,1
+Product not as described,1,1
+Size unavailable for exchange,1,1
+Wrong item delivered,1,1
+Wrong size delivered,1,1

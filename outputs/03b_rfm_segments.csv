@@ -1,0 +1,20 @@
+customer_id,full_name,recency_days,frequency,monetary,r_score,f_score,m_score,rfm_segment
+22,Shruti Kapoor,268,5,145992.10,1,2,2,At Risk
+30,Lakshmi Venkat,419,4,148488.00,1,2,2,At Risk
+39,Aditya Kumar,255,3,109296.00,1,1,2,At Risk
+1,Aarav Sharma,48,12,326329.10,3,3,3,Champions
+6,Ananya Nair,0,9,288141.23,3,3,3,Champions
+12,Divya Krishnan,22,8,275941.10,3,3,3,Champions
+5,Vikram Singh,1500,1,3149.10,1,1,1,Lost
+11,Rahul Verma,1351,1,7999.00,1,1,1,Lost
+36,Pallavi Nair,468,2,8648.00,1,1,1,Lost
+45,Vivek Anand,215,4,80291.08,1,1,1,Lost
+3,Rohan Mehta,102,11,483541.20,2,3,3,Loyal Customers
+9,Arjun Bose,75,9,299096.33,2,3,3,Loyal Customers
+18,Ritika Agarwal,62,6,186941.05,3,3,2,Loyal Customers
+15,Nikhil Rao,151,5,171996.00,2,2,2,Needs Attention
+24,Preethi Subramaniam,129,5,251848.05,2,2,3,Needs Attention
+33,Harsh Vardhan,88,4,109145.20,2,2,1,Needs Attention
+42,Chitra Subash,115,3,64248.00,2,1,1,Needs Attention
+27,Varun Bajaj,10,4,66344.05,3,1,1,Potential Loyalists
+48,Priyanka Chatterjee,36,4,232998.00,3,2,2,Potential Loyalists

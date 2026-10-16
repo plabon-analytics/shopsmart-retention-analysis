@@ -1,0 +1,2 @@
+total_orders_placed,orders_confirmed,pct_confirmed,orders_delivered,pct_delivered,orders_returned,pct_returned,orders_cancelled,pct_cancelled
+115,107,93.04,100,86.96,7,6.09,8,6.96

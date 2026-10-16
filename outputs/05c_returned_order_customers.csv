@@ -1,0 +1,6 @@
+customer_id,full_name,orders_with_returns,delivered_orders,last_delivered_order,days_before_data_end
+6,Ananya Nair,2,9,2026-05-28,0
+18,Ritika Agarwal,1,6,2026-03-27,62
+9,Arjun Bose,2,9,2026-03-14,75
+15,Nikhil Rao,2,5,2025-12-28,151
+8,Pooja Reddy,1,0,,

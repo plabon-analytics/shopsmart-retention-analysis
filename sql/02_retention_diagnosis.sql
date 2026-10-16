@@ -29,6 +29,13 @@
 --   annotations), and do not draw comparative conclusions
 --   ("2024 retains worse than 2022") from it.
 --
+-- CAVEAT -- 2026 is a partial year:
+--   The data ends on 2026-05-28. The last column of every cohort
+--   (2022 cohort Year 4, 2023 cohort Year 3, 2024 cohort Year 2)
+--   is calendar 2026, about five months. Retention there is
+--   understated by construction and should not be read as a
+--   decline. Compare cohorts on full years only.
+--
 -- Revenue definition:
 --   revenue = unit_price * quantity * (1 - discount/100) -- NET
 --   revenue, consistent with Section 1 and every section after.

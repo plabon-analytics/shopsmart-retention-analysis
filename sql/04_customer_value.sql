@@ -23,6 +23,16 @@
 --   here -- a single customer's binary active/inactive status
 --   would distort a population-level average.
 --
+--   The final calendar year (2026) is also excluded. The data ends
+--   on 2026-05-28, so 2026 covers about five months, and counting
+--   a customer as "not retained" because they have not yet bought
+--   again in a partial year would overstate churn. Including it
+--   gives 28.57% annual churn (3.5-year lifespan); excluding it
+--   gives 20.00% (5-year lifespan). Every customer's predictive
+--   CLV scales by the same factor between the two, so rankings,
+--   tiers and the Section 7 priorities do not change; only the
+--   absolute rupee values do.
+--
 --   LIMITATION: this is a simplifying average, not a strict
 --   probabilistic churn model. Section 2 showed the 2022 cohort
 --   bouncing from 66.67% back up to 83.33% retention -- real
@@ -87,6 +97,8 @@ churn_rate AS (
         1 - (AVG(retention_pct) / 100) AS annual_churn_rate
     FROM retention_calc
     WHERE years_since_first_purchase > 0
+      AND cohort_year + years_since_first_purchase
+          < (SELECT YEAR(MAX(order_date)) FROM orders)   -- skip the incomplete final year, see header
       AND cohort_year != 2024   -- exclude n=1 cohort, see header
 ),
 customer_summary AS (

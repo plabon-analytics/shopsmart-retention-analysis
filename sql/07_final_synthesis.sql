@@ -59,6 +59,10 @@
 --   data, not from CURDATE(), so every run gives the same numbers
 --   (see Section 3's header for the reasoning).
 --
+-- Churn input:
+--   predictive_clv uses the same churn derivation as Section 4,
+--   including the exclusion of the incomplete final year (2026).
+--
 -- Tie-breaking:
 --   Every NTILE here ends with a deterministic tiebreaker, as in
 --   Section 3, so scores and tiers do not depend on row order.
@@ -148,6 +152,8 @@ churn_rate AS (
         1 - (AVG(retention_pct) / 100) AS annual_churn_rate
     FROM retention_calc
     WHERE years_since_first_purchase > 0
+      AND cohort_year + years_since_first_purchase
+          < (SELECT YEAR(MAX(order_date)) FROM orders)   -- skip the incomplete final year, see header
       AND cohort_year != 2024
 ),
 customer_summary AS (
