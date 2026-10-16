@@ -1,6 +1,10 @@
 # ShopSmart retention analysis
 
-An SQL project that answers one business question for a small e-commerce database: which customers should ShopSmart spend its retention budget on, and why. Eight analyses (rolling average, month-over-month and year-over-year growth, cohorts, retention, RFM, customer lifetime value, funnel and market basket) feed one final table that ranks customers by predicted value and flags which ones are drifting away. The database is synthetic and I designed it myself: 50 customers and 115 orders between 2022 and 2026.
+An SQL project that decides which customers a small e-commerce business should spend its retention budget on. Eight analyses feed one final table that ranks customers by predicted value and flags the ones drifting away.
+
+The data is synthetic: a six-table MySQL database I designed, with 50 customers and 115 orders from 2022 to 2026.
+
+Tools: MySQL 8, CTEs, window functions (`LAG`, `NTILE`, `AVG() OVER`), self-joins, conditional aggregation.
 
 ## The question
 
@@ -8,7 +12,7 @@ Which customers should ShopSmart invest retention budget in, and why?
 
 ## The answer
 
-Put most of the budget into five customers who are high in predicted value and still buying: Rohan Mehta, Priyanka Chatterjee, Aarav Sharma, Preethi Subramaniam and Arjun Bose. They account for 45.5% of the total predicted lifetime value in the data (₹5.0M). Add one win-back effort for Lakshmi Venkat, the only high-value customer who has gone quiet; her last order was 419 days before the end of the data. Spend little on the rest.
+Put most of the budget into five customers who are high in predicted value and still buying: Rohan Mehta, Priyanka Chatterjee, Aarav Sharma, Preethi Subramaniam and Arjun Bose. They account for 45.5% of the total predicted lifetime value in the data (₹5.0M). Add one win-back effort for Lakshmi Venkat, the only high-value customer who has gone quiet; her last order was 419 days before the end of the data. Spend little on the rest. The data has no campaign cost or response rate for individual customers, so this ranks who deserves attention and does not size a budget.
 
 | Priority | Customers | Share of predicted value | Meaning |
 |---|---|---|---|
@@ -36,7 +40,7 @@ Revenue is not falling, so the case for retention is not a sales decline. Net re
 | returns | 15 | Item-level returns with a reason |
 | marketing_campaigns | 10 | Channel, dates, budget, reach |
 
-Orders run from 2022-01-10 to 2026-05-28. Statuses are Delivered (100), Cancelled (8) and Returned (7).
+Orders run from 2022-01-10 to 2026-05-28. Statuses are Delivered (100), Cancelled (8) and Returned (7). The `marketing_campaigns` table and the `segment` column in `customers` are not used in this analysis.
 
 Revenue throughout means net revenue: `unit_price * quantity * (1 - discount / 100)`, counted on delivered orders unless a section says otherwise.
 
@@ -62,6 +66,10 @@ Each file starts with a comment block stating the question, the choices made and
 ### Revenue (01)
 
 Net revenue from delivered orders was ₹712K in 2022, ₹542K in 2023, ₹754K in 2024 and ₹855K in 2025. That is a 23.9% drop in 2023, followed by growth of 39.1% and 13.5%. January to May 2026 came to ₹397K, 11.1% above the same months of 2025. Every one of the 53 months in the data has at least one delivered order, so the year-over-year comparison lines up with calendar months. With only 19 buyers, a few large purchases can move a whole year, so the trend is more reliable than any single figure.
+
+![Net revenue from delivered orders by year](docs/revenue_by_year.png)
+
+2026 covers January to May only.
 
 ### Cohorts and retention (02)
 
@@ -134,7 +142,7 @@ shopsmart-retention-analysis/
 ├── results/
 │   └── one CSV per query, named after its SQL file
 └── docs/
-    └── erd.png
+    └── revenue_by_year.png
 ```
 
 ## How to run
@@ -151,8 +159,10 @@ The `results/` folder has the output of every query as CSV. A blank cell means N
 
 - Advanced market basket measures (support, confidence, lift).
 - Why 29 customers never ordered. That is an acquisition question, not a retention one.
+- Sizing the budget, since the data has no per-customer cost or response rate.
+- Comparing the RFM segments with the `segment` column already in `customers`.
 
 ## About
 
 Plabon Roy, BBA Business Analytics student at Chandigarh University, India.
-LinkedIn: <add your link> | Email: <add your email>
+LinkedIn: <https://www.linkedin.com/in/plabon-roy-analytics > | Email: <plabonroy910@gmail.com>
