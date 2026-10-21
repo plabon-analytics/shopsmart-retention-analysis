@@ -4,7 +4,7 @@ An SQL project that decides which customers a small e-commerce business should s
 
 The data is synthetic: a six-table MySQL database I designed, with 50 customers and 115 orders from 2022 to 2026.
 
-Tools: MySQL 8, CTEs, window functions (`LAG`, `NTILE`, `AVG() OVER`), self-joins, conditional aggregation.
+Tools: MySQL 8, CTEs, window functions (`LAG`, `NTILE`, `AVG() OVER`), self-joins, conditional aggregation. Tableau Public for the dashboards.
 
 ## The question
 
@@ -28,6 +28,18 @@ Using RFM labels alone would have pointed the budget at the wrong people. Two of
 The INVEST NOW group has one customer because of where the top-third cutoff falls. Lakshmi's predicted value (₹343K) is about 1% above the next customer's (₹339K). She is the clearest case, not necessarily the only one.
 
 Revenue is not falling, so the case for retention is not a sales decline. Net revenue grew in each of the last three periods (details below), but it rests on the same 19 buyers, and no customer has made a first delivered purchase since February 2024.
+
+## Dashboards
+
+Two Tableau Public dashboards present the results. They read the CSV files in `results/` and calculate nothing new, so every figure matches the sections below. Click an image to open the live dashboard.
+
+[Dashboard 1: who should get the retention budget?](https://public.tableau.com/app/profile/plabon.roy4287/viz/ShopSmartretentionanalysis/Dashboard1)
+
+[![Dashboard 1: who should get the retention budget?](docs/dashboard1.png)](https://public.tableau.com/app/profile/plabon.roy4287/viz/ShopSmartretentionanalysis/Dashboard1)
+
+[Dashboard 2: is retention a problem?](https://public.tableau.com/app/profile/plabon.roy4287/viz/ShopSmartretentionanalysis/Dashboard2)
+
+[![Dashboard 2: is retention a problem?](docs/dashboard2.png)](https://public.tableau.com/app/profile/plabon.roy4287/viz/ShopSmartretentionanalysis/Dashboard2)
 
 ## Data
 
@@ -142,6 +154,8 @@ shopsmart-retention-analysis/
 ├── results/
 │   └── one CSV per query, named after its SQL file
 └── docs/
+    ├── dashboard1.png
+    ├── dashboard2.png
     └── revenue_by_year.png
 ```
 
@@ -165,4 +179,4 @@ The `results/` folder has the output of every query as CSV. A blank cell means N
 ## About
 
 Plabon Roy, BBA Business Analytics student at Chandigarh University, India.
-LinkedIn: <https://www.linkedin.com/in/plabon-roy-analytics > | Email: <plabonroy910@gmail.com>
+LinkedIn: <add your link> | Email: <add your email>
